@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">E-RationQueue</string>
+    <string name="enter_card_number">Enter card number</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="login">Login</string>
     <string-array name="Products">
         <item>Rice</item>
         <item>Kerosene</item>

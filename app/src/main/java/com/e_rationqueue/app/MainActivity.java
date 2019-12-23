@@ -8,13 +8,10 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-//import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
-
-
 public class MainActivity extends AppCompatActivity {
-    private EditText Name;
-    private EditText Password;
-    private Button Login;
+    private EditText Name = findViewById(R.id.etName);
+    private EditText Password = findViewById(R.id.etPassword);
+    private Button Login = findViewById(R.id.btnLogin);
 
 
     @Override
@@ -22,24 +19,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Name = (EditText)findViewById(R.id.etName);
-        //Name = <T extends (EditText)> T findViewById(String etName);
-        Password = (EditText)findViewById(R.id.etPassword);
-        Login = (Button)findViewById(R.id.btnLogin);
-
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validate(Name.getText().toString(),Password.getText().toString());
+                validate(Name.getText().toString(), Password.getText().toString());
             }
         });
     }
-    private void validate(String Username , String Password ){
-        if ((Username.equals("admin")) && (Password.equals("pass"))){
-            Intent intent =new Intent (MainActivity.this,SecondActivity.class);
+
+    private void validate(String Username, String Password) {
+        if ((Username.equals("admin")) && (Password.equals("pass"))) {
+            Intent intent = new Intent(MainActivity.this, SecondActivity.class);
             startActivity(intent);
 
-        }else{
+        } else {
             Login.setEnabled(false);
         }
     }
