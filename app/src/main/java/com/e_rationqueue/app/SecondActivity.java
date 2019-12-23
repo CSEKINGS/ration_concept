@@ -1,46 +1,76 @@
 package com.e_rationqueue.app;
 
-        import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-        import android.os.Bundle;
-        import android.widget.ArrayAdapter;
-        import android.widget.EditText;
-        import android.widget.Spinner;
+import androidx.appcompat.app.AppCompatActivity;
 
-        import com.google.firebase.auth.FirebaseAuth;
-        import com.google.firebase.auth.FirebaseUser;
-
-        import java.util.concurrent.atomic.AtomicMarkableReference;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SecondActivity extends AppCompatActivity {
-    private FirebaseAuth firebaseAuth;
-    private EditText quantity;
+    EditText quantity;
+    Button submit;
+    Spinner dropdown;
 
+    DatabaseReference databaseProducts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
-        quantity = (EditText) findViewById(R.id.quanttext);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.Products, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
 
-        firebaseAuth = FirebaseAuth.getInstance();
+        databaseProducts = FirebaseDatabase.getInstance().getReference("product");
 
 
-        FirebaseUser user = firebaseAuth.getCurrentUser();
+        quantity = findViewById(R.id.quanttext);
+        submit = findViewById(R.id.btnSubmit);
+        dropdown = findViewById(R.id.spinner);
 
-        String text = spinner.getSelectedItem().toString().trim();
-        String amount = quantity.getText().toString().trim();
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                DatabaseReference myRef = database.getReference("message");
+
+                myRef.setValue("Hello, World!");
+                addProduct();
+
+            }
+        });
 
 
+    }
+
+    private void addProduct() {
+        String product = quantity.getText().toString().trim();
+        String quantity = dropdown.getSelectedItem().toString();
+
+        if (!TextUtils.isEmpty(product)) {
+
+            String id = databaseProducts.push().getKey();
+            product product1 = new product(id, product, quantity);
+
+
+            assert id != null;
+            final Task<Void> voidTask = databaseProducts.child(id).setValue(product1);
+            Toast.makeText(this, "Product added", Toast.LENGTH_LONG).show();
+           /*
+           databaseProducts.child("item").setValue(new product("rice","100"));
+            */
+
+        } else {
+            Toast.makeText(this, "You should enter the quantity", Toast.LENGTH_LONG).show();
+
+        }
     }
 }
 
