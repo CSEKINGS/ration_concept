@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">E-RationQueue</string>
+    <string-array name="Products">
+        <item>Rice</item>
+        <item>Kerosene</item>
+        <item>Sugar</item>
+        <item>Wheat</item>
+        <item>Toor Dhal</item>
+        <item>Urid Dhal</item>
+        <item>Palmolein oil</item>
+        <item>Tea powder</item>
+    </string-array>
+
+
 </resources>
