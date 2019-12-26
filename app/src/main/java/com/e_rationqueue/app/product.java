@@ -1,9 +1,9 @@
 package com.e_rationqueue.app;
 
 public class product {
-    String productId;
-    String productName;
-    String quantityValue;
+    private String productId;
+    private String productName;
+    private String quantityValue;
 
     public product() {
 

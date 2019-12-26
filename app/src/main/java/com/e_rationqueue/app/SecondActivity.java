@@ -2,7 +2,6 @@ package com.e_rationqueue.app;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -29,14 +28,11 @@ public class SecondActivity extends AppCompatActivity {
         quantity = findViewById(R.id.quanttext);
         submit = findViewById(R.id.btnSubmit);
         dropdown = findViewById(R.id.spinner);
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("message");
-                myRef.setValue("Hello, World!");
-                addProduct();
-            }
+        submit.setOnClickListener(v -> {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("message");
+            myRef.setValue("Hello, World!");
+            addProduct();
         });
     }
 
