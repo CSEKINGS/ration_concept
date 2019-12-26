@@ -45,10 +45,7 @@ public class SecondActivity extends AppCompatActivity {
             assert id != null;
             databaseProducts.child(id).setValue(product1);
             Toast.makeText(this, "Product added", Toast.LENGTH_LONG).show();
-            databaseProducts.child("item").setValue(new product("1", "rice", "100"));
-        } else {
-            Toast.makeText(this, "You should enter the quantity", Toast.LENGTH_LONG).show();
-        }
+        } else Toast.makeText(this, "You should enter the quantity", Toast.LENGTH_LONG).show();
     }
 }
 

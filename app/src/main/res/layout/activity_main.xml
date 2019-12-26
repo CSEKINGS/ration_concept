@@ -10,27 +10,27 @@
         android:id="@+id/etName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enter_card_number"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:hint="@string/enter_card_number"
-        app:layout_constraintVertical_bias="0.811"
+        app:layout_constraintVertical_bias="0.875"
         tools:targetApi="o" />
 
     <EditText
         android:id="@+id/etPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="328dp"
+        android:layout_marginBottom="480dp"
         android:autofillHints=""
         android:ems="10"
+        android:hint="@string/enter_your_phone_number"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:hint="@string/enter_your_phone_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:targetApi="o" />
@@ -45,6 +45,6 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintVertical_bias="0.081" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
