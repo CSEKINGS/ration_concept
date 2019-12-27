@@ -4,45 +4,47 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
-
-    <Spinner
-        android:id="@+id/spnProduct"
-        android:layout_width="187dp"
-        android:layout_height="46dp"
-        android:entries="@array/Products"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+    tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/etQuantity"
+        android:id="@+id/etName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/quantity"
+        android:hint="@string/login_id"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/etPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/spnProduct"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintVertical_bias="0.875"
+        tools:targetApi="o" />
 
-    <Button
-        android:id="@+id/btnSubmit"
+    <EditText
+        android:id="@+id/etPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/submit"
+        android:layout_marginBottom="480dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:targetApi="o" />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.412" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintVertical_bias="0.081" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

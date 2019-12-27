@@ -3,6 +3,11 @@
     <string name="enter_card_number">Enter card number</string>
     <string name="enter_your_phone_number">Enter your phone number</string>
     <string name="login">Login</string>
+    <string name="quantity">Quantity</string>
+    <string name="submit">Submit</string>
+    <string name="login_id">Login ID</string>
+    <string name="password">Password</string>
+    <string name="i_am_in">I am in</string>
     <string-array name="Products">
         <item>Rice</item>
         <item>Kerosene</item>

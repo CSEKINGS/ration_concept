@@ -25,9 +25,9 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
         databaseProducts = FirebaseDatabase.getInstance().getReference("product");
 
-        quantity = findViewById(R.id.quanttext);
+        quantity = findViewById(R.id.etQuantity);
         submit = findViewById(R.id.btnSubmit);
-        dropdown = findViewById(R.id.spinner);
+        dropdown = findViewById(R.id.spnProduct);
         submit.setOnClickListener(v -> {
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference myRef = database.getReference("message");
@@ -37,13 +37,13 @@ public class SecondActivity extends AppCompatActivity {
     }
 
     private void addProduct() {
-        String product = quantity.getText().toString().trim();
-        String quantity = dropdown.getSelectedItem().toString();
+        String product = dropdown.getSelectedItem().toString();
+        String quantity1 = quantity.getText().toString().trim();
         if (!TextUtils.isEmpty(product)) {
             String id = databaseProducts.push().getKey();
-            product product1 = new product(id, product, quantity);
+            product product1 = new product(product, quantity1);
             assert id != null;
-            databaseProducts.child(id).setValue(product1);
+            databaseProducts.child(product).setValue(product1);
             Toast.makeText(this, "Product added", Toast.LENGTH_LONG).show();
         } else Toast.makeText(this, "You should enter the quantity", Toast.LENGTH_LONG).show();
     }

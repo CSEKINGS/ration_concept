@@ -1,31 +1,24 @@
 package com.e_rationqueue.app;
 
 public class product {
-    private String productId;
-    private String productName;
-    private String quantityValue;
+
+    String product;
+    String quantity;
 
     public product() {
 
     }
 
-    public product(String productId, String productName, String quantityValue) {
-        this.productId = productId;
-        this.productName = productName;
-        this.quantityValue = quantityValue;
+    public product(String product, String quantity) {
+        this.product = product;
+        this.quantity = quantity;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getProduct() {
+        return product;
     }
 
-    public String getProductName() {
-        return productName;
-    }
-
-    public String getQuantityValue() {
-        return quantityValue;
+    public String getQuantity() {
+        return quantity;
     }
 }
-
-
